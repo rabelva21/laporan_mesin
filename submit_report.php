@@ -4,6 +4,9 @@ session_start();
 include 'config.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $nama_teknisi = $_POST['nama_teknisi'];
+    $nomor_telpon = $_POST['nomor_telpon'];
+    $email_teknisi = $_POST['email_teknisi'];
     $nama_mesin = $_POST['nama_mesin'];
     $lokasi = $_POST['lokasi'];
     $jenis_kerusakan = $_POST['jenis_kerusakan'];
@@ -64,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     // Masukkan data ke database
-    $stmt = $conn->prepare("INSERT INTO laporan_kerusakan_mesin (nama_mesin, lokasi, jenis_kerusakan, deskripsi_kerusakan, foto_path) VALUES (?, ?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO laporan_kerusakan (nama_teknisi, nomor_telpon, email_teknisi nama_mesin, lokasi, jenis_kerusakan, deskripsi_kerusakan, foto_path) VALUES (?, ?, ?, ?, ?)");
     $stmt->bind_param("sssss", $nama_mesin, $lokasi, $jenis_kerusakan, $deskripsi_kerusakan, $foto_path);
 
     if ($stmt->execute()) {
