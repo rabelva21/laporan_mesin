@@ -17,6 +17,15 @@
         }
         ?>
         <form action="submit_report.php" method="POST" enctype="multipart/form-data">
+            <label for="nama_teknisi">Nama Teknisi:</label>
+            <input type="text" id="nama_teknisi" name="nama_teknisi" required>
+
+            <label for="nomor_telpon">Nomor Telpon:</label>
+            <input type="text" id="nomor_telpon" name="nomor_telpon" required>
+
+            <label for="email_teknisi">Email Teknisi:</label>
+            <input type="text" id="email_teknisi" name="email_teknisi" required>
+
             <label for="nama_mesin">Nama Mesin:</label>
             <input type="text" id="nama_mesin" name="nama_mesin" required>
 
