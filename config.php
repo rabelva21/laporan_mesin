@@ -1,8 +1,8 @@
 <?php
 // config.php
 $servername = "localhost";
-$username = "root"; // Sesuaikan dengan username database Anda
-$password = "";     // Sesuaikan dengan password database Anda
+$username = "root"; // Sesuaikan dengan username database
+$password = "";     // Sesuaikan dengan password database
 $dbname = "laporan_kerusakan";
 
 // Buat koneksi
