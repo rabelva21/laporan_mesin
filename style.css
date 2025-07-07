@@ -1,48 +1,93 @@
-/* style.css */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+/* GLOBAL LAYOUT */
+html, body {
+    height: 100%;
     margin: 0;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start; /* Mengatur ke atas */
-    min-height: 100vh; /* Pastikan minimal tinggi viewport */
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #b30000;
+    color: #000;
 }
 
+/* Halaman scrollable, form tetap tengah */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    overflow-x: hidden;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* FORM UMUM */
 .container {
+    position: relative;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+    box-sizing: border-box;
+    border: 1px solid #000;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("https://media.licdn.com/dms/image/v2/C4D0BAQEB7-cdfklIpw/company-logo_200_200/company-logo_200_200/0/1631320071837?e=2147483647&v=beta&t=E9Ire-OSFCCOIIqymcul9vyIU9a5kNsCUWaUCHEAxWI");
+    background-size: 450px;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.08;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* LOGIN KHUSUS */
+.login-container {
     background-color: #fff;
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 800px; /* Batasi lebar container */
-    box-sizing: border-box; /* Pastikan padding dihitung dalam lebar */
+    max-width: 400px;
+    text-align: center;
+    margin: auto;
 }
 
 h2 {
     text-align: center;
-    color: #333;
+    color: #b30000;
     margin-bottom: 25px;
 }
 
 label {
     display: block;
     margin-bottom: 8px;
-    color: #555;
+    color: #000;
     font-weight: bold;
 }
 
 input[type="text"],
+input[type="password"],
 textarea,
 select {
-    width: calc(100% - 20px); /* Kurangi 20px untuk padding */
+    width: calc(100% - 20px);
     padding: 10px;
     margin-bottom: 20px;
-    border: 1px solid #ddd;
+    border: 1px solid #000;
     border-radius: 4px;
     box-sizing: border-box;
     font-size: 1rem;
+    background-color: #fff;
+    color: #000;
 }
 
 input[type="file"] {
@@ -50,7 +95,7 @@ input[type="file"] {
 }
 
 button[type="submit"] {
-    background-color: #007bff;
+    background-color: #b30000;
     color: white;
     padding: 12px 20px;
     border: none;
@@ -62,24 +107,58 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-    background-color: #0056b3;
+    background-color: #800000;
 }
 
 .message {
-    background-color: #d4edda;
+    background-color: #d7f8dd;
     color: #155724;
     padding: 10px;
     border-radius: 5px;
     margin-bottom: 20px;
     text-align: center;
-    border: 1px solid #c3e6cb;
+    border: 1px solid #66fa45;
+}
+
+.error-message, .message.error {
+    background-color: #ffe6e6;
+    color: #b30000;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+    border: 1px solid #b30000;
+}
+
+.upload-button {
+    display: inline-block;
+    padding: 12px 20px;
+    background-color: #b30000;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.upload-button:hover {
+    background-color: #800000;
+    transform: scale(1.03);
+}
+
+.upload-button:active {
+    transform: scale(0.98);
 }
 
 p a {
     display: block;
     text-align: center;
     margin-top: 20px;
-    color: #007bff;
+    color: #b30000;
     text-decoration: none;
 }
 
@@ -87,14 +166,14 @@ p a:hover {
     text-decoration: underline;
 }
 
-/* Dashboard Styling */
+/* Riwayat Laporan (Dashboard) */
 .reports-list {
     margin-top: 30px;
 }
 
 .report-item {
-    background-color: #f9f9f9;
-    border: 1px solid #e0e0e0;
+    background-color: #fefefe;
+    border: 1px solid #000;
     border-radius: 6px;
     padding: 15px;
     margin-bottom: 20px;
@@ -103,8 +182,8 @@ p a:hover {
 
 .report-item h3 {
     margin-top: 0;
-    color: #333;
-    border-bottom: 1px solid #eee;
+    color: #b30000;
+    border-bottom: 1px solid #000;
     padding-bottom: 10px;
     margin-bottom: 15px;
 }
@@ -112,10 +191,7 @@ p a:hover {
 .report-item p {
     margin: 8px 0;
     line-height: 1.5;
-}
-
-.report-item strong {
-    color: #444;
+    color: #000;
 }
 
 .report-image {
@@ -124,9 +200,10 @@ p a:hover {
     display: block;
     margin-top: 15px;
     border-radius: 4px;
-    border: 1px solid #ddd;
+    border: 1px solid #000;
 }
 
+/* Status badge */
 .status {
     padding: 5px 10px;
     border-radius: 3px;
@@ -136,23 +213,26 @@ p a:hover {
 }
 
 .status.menunggu {
-    background-color: #ffc107;
-    color: #6d4b00;
+    background-color: #ffe6e6;
+    color: #b30000;
+    border: 1px solid #b30000;
 }
 
 .status.ditangani {
-    background-color: #17a2b8;
-    color: #0a4f5b;
+    background-color: #ffcccc;
+    color: #800000;
+    border: 1px solid #800000;
 }
 
 .status.selesai {
-    background-color: #28a745;
+    background-color: #cc0000;
     color: white;
+    border: 1px solid #990000;
 }
 
 .status-form {
     margin-top: 15px;
-    border-top: 1px solid #eee;
+    border-top: 1px solid #000;
     padding-top: 15px;
     display: flex;
     align-items: center;
@@ -162,18 +242,29 @@ p a:hover {
 .status-form select {
     width: auto;
     margin-bottom: 0;
+    background-color: #fff;
+    color: #000;
+    border: 1px solid #000;
 }
 
 .status-form button {
     width: auto;
     padding: 8px 15px;
     font-size: 0.9rem;
+    background-color: #b30000;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+.status-form button:hover {
+    background-color: #800000;
 }
 
 .filter-form {
     margin-bottom: 20px;
     padding-bottom: 15px;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #000;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -182,4 +273,5 @@ p a:hover {
 .filter-form label {
     margin-bottom: 0;
     font-weight: normal;
+    color: #000;
 }
